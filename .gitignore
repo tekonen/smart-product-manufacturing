@@ -1,0 +1,9 @@
+# Licensed database content — never publish (Scopus/Web of Science/OpenAlex API responses & exports)
+.cache/
+data/raw/
+
+# macOS
+.DS_Store
+
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json

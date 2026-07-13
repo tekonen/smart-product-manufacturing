@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>slr-protocol-v0.1</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="slr-protocol-v0.1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slr-protocol-v0.1_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="slr-protocol-v0.1_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="slr-protocol-v0.1_files/libs/quarto-html/popper.min.js"></script>
+<script src="slr-protocol-v0.1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="slr-protocol-v0.1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="slr-protocol-v0.1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slr-protocol-v0.1_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="slr-protocol-v0.1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="slr-protocol-v0.1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="slr-protocol-v0.1_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="systematic-mapping-study-protocol-v0.5-2026-07-14" class="level1">
+<h1>Systematic mapping study protocol — v0.5 (2026-07-14)</h1>
+<blockquote class="blockquote">
+<p>v0.5: IEEE Xplore dropped (journal-only criteria; IEEE journals covered via Scopus/WoS); Web of Science access confirmed; Quality and Synthesis chapters rewritten for clarity; RQ3 = Scopus reference exports (Option C).</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>v0.2: all four open decisions resolved by Teemu (see end of file). v0.3: pilot-driven rubric fixes — new exclusion criterion (macro-econ/policy), D1 processor split (machine/human), abstracts sourced from Scopus with Semantic Scholar fallback. Product-intelligence grading (interface threshold) under discussion — see <code>intelligence-scale-options.md</code>.</p>
+</blockquote>
+<section id="working-title" class="level2">
+<h2 class="anchored" data-anchor-id="working-title">Working title</h2>
+<p><strong>“Where does the smart reside? A systematic mapping of the locus of intelligence in smart manufacturing research”</strong></p>
+<p>(Alternative: “Smart processes, dumb products? …” — punchier, higher risk with conservative reviewers.)</p>
+</section>
+<section id="background-and-rationale-one-paragraph" class="level2">
+<h2 class="anchored" data-anchor-id="background-and-rationale-one-paragraph">Background and rationale (one paragraph)</h2>
+<p>Smart manufacturing research has grown explosively since ~2012, but scoping evidence (OpenAlex, 2026-07-13, see <code>scoping/2026-07-13-gap-verification.md</code>) suggests the field locates intelligence overwhelmingly in the manufacturing process and its resources — machines, scheduling, maintenance, factories (the <em>processor</em>) — rather than in the product being made (the <em>processee</em>), its lifecycle, and the outcomes it delivers to users. The product-as-agent idea (product-driven control, intelligent products) predates Industry 4.0 but remained marginal (~84 works since 2000), while adjacent product-side streams (smart product-service systems, digital servitization, smart products in innovation research) evolved in separate communities with weak ties to manufacturing-systems research. No prior review audits smart manufacturing literature on this dimension (novelty verified in Scopus 2026-07-13: no precedent for the claim; the term “locus of intelligence” is unclaimed in this domain).</p>
+</section>
+<section id="research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="research-questions">Research questions</h2>
+<ul>
+<li><strong>RQ1 (locus):</strong> In smart manufacturing research, where is the intelligence located — in the manufacturing process/resources (processor), in the product being manufactured (processee), or at their interface?</li>
+<li><strong>RQ2 (outcome):</strong> Which outcomes does the research aim to improve — process-efficiency outcomes (productivity, cost, quality of conformance, uptime) or product-value outcomes (product capability, lifecycle value, user/customer outcomes)?</li>
+<li><strong>RQ3 (integration):</strong> To what extent do the smart-manufacturing and smart-product literatures cite and build on each other (bibliometric coupling / co-citation)?</li>
+<li><strong>RQ4 (agenda):</strong> What research opportunities follow, particularly for products that are smart <em>during</em> manufacturing and that connect production to lifecycle value (AI-enabled, user-adaptive products)?</li>
+</ul>
+</section>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">Design</h2>
+<p>Systematic mapping study (Petersen et al.&nbsp;2015 guidelines for mapping studies in software engineering, adapted) + bibliometric analysis, reported per <strong>PRISMA 2020</strong> (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) with the PRISMA flow diagram and checklist. Protocol to be registered on OSF (Open Science Framework) before full screening begins.</p>
+</section>
+<section id="search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="search-strategy">Search strategy</h2>
+<section id="databases-revised-v0.5-2026-07-14" class="level3">
+<h3 class="anchored" data-anchor-id="databases-revised-v0.5-2026-07-14">Databases (revised v0.5, 2026-07-14)</h3>
+<ol type="1">
+<li><strong>Scopus</strong> (primary — record retrieval, abstracts, DOCTYPE filtering, and the RQ3 reference exports per Option C)</li>
+<li><strong>Web of Science Core Collection</strong> (second screening database — institutional access confirmed, works via university VPN)</li>
+</ol>
+<p><strong>IEEE Xplore dropped (v0.5):</strong> the inclusion criteria are journal-articles-only, and IEEE journals are fully indexed in both Scopus and Web of Science — IEEE Xplore would add only conference material that the criteria exclude anyway (pilot 2: 11/30 random records were conference papers). Documented here so the PRISMA methods section can state the rationale.</p>
+<p><strong>OpenAlex is not a review database in this study</strong>: it was used for scoping and pilot sampling only (documented in <code>scoping/</code> and <code>pilot/</code>), and contributes no reported figure in the paper (per the RQ3 Option C decision).</p>
+</section>
+<section id="draft-search-string-scopus-syntax-title-level-to-keep-corpus-tractable" class="level3">
+<h3 class="anchored" data-anchor-id="draft-search-string-scopus-syntax-title-level-to-keep-corpus-tractable">Draft search string (Scopus syntax, title-level to keep corpus tractable)</h3>
+<p>Corpus A — smart manufacturing (the audited corpus):</p>
+<pre><code>TITLE("smart manufacturing" OR "intelligent manufacturing" OR "smart factory"
+  OR "smart production" OR "manufacturing 4.0" OR "cyber-physical production system*")
+AND PUBYEAR &gt; 2011 AND PUBYEAR &lt; 2027
+AND ( LIMIT-TO ( DOCTYPE , "ar" ) OR LIMIT-TO ( DOCTYPE , "re" ) )
+AND ( LIMIT-TO ( LANGUAGE , "English" ) )</code></pre>
+<p>Corpus B — product-side reference corpus (for RQ3 bibliometrics, not coded):</p>
+<pre><code>TITLE("smart product*" OR "intelligent product*" OR "smart connected product*"
+  OR "product-driven" OR "product avatar" OR "smart product-service")
+AND PUBYEAR &gt; 2011 AND PUBYEAR &lt; 2027</code></pre>
+<p>Notes: - Title-level search is a deliberate mapping-study choice (high precision, defensible scale); sensitivity check: run one TITLE-ABS-KEY variant on a sample year to estimate recall loss. - “Industry 4.0” deliberately excluded from Corpus A core string (too broad — includes policy, education, etc.); include as sensitivity variant. - 2012 start = post-Industrie 4.0 announcement (Hannover Messe 2011).</p>
+</section>
+<section id="expected-scale-and-sampling-plan" class="level3">
+<h3 class="anchored" data-anchor-id="expected-scale-and-sampling-plan">Expected scale and sampling plan</h3>
+<p>Title-level Corpus A likely 3,000–6,000 records after dedup. Screening plan: - If ≤ 2,000 after title/abstract screening: code all. - If more: stratified random sample by year (target n≈800–1,200 coded), plus ALL papers with ≥100 citations (census of the influential core). Report both strata separately.</p>
+</section>
+</section>
+<section id="inclusion-exclusion-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="inclusion-exclusion-criteria">Inclusion / exclusion criteria</h2>
+<p><strong>Include:</strong> peer-reviewed journal articles and reviews (conference papers as sensitivity set); English; primary focus on smart/intelligent manufacturing (technology, system, method, framework, or management thereof); 2012–2026.</p>
+<p><strong>Exclude:</strong> editorials, book chapters, non-English; papers where “smart manufacturing” is only incidental context (e.g., pure materials science, workforce policy); duplicates and retracted items; <strong>macro-level economics/policy studies whose unit of analysis is not a manufacturing system/technology</strong> (e.g., city/region/industry econometrics — pilot papers #27, #29; added v0.3).</p>
+</section>
+<section id="screening-procedure" class="level2">
+<h2 class="anchored" data-anchor-id="screening-procedure">Screening procedure</h2>
+<ol type="1">
+<li>Deduplicate (DOI + fuzzy title).</li>
+<li>Title/abstract screening against criteria — <strong>LLM-assisted with human validation</strong>: Claude codes all records; Teemu manually screens a random 10% (target Cohen’s kappa ≥ 0.8 vs.&nbsp;LLM; if below, revise rubric and re-run). Disclose fully in methods (this is current best practice, e.g. guidance emerging in Cochrane/Campbell on AI-assisted screening).</li>
+<li>Full-text retrieval for coded set (Zotero library as store).</li>
+<li><strong>Abstract source (v0.3):</strong> abstracts taken from Scopus API records (complete for curated content); Semantic Scholar by DOI as fallback. OpenAlex abstracts NOT used for coding decisions (~40% missing for closed-access records, verified in pilot).</li>
+</ol>
+</section>
+<section id="coding-scheme-rq1rq2-the-core-contribution" class="level2">
+<h2 class="anchored" data-anchor-id="coding-scheme-rq1rq2-the-core-contribution">Coding scheme (RQ1/RQ2 — the core contribution)</h2>
+<p>Each included paper coded on:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th>Categories</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>D1. Locus of intelligence</strong></td>
+<td><strong>processor-machine</strong> (machine/cell/line/factory/supply system) / <strong>processor-human</strong> (worker-as-resource: human-centric, human-in-the-loop, operator support — v0.3 split to capture the Industry 5.0 wave) / processee (the product being made) / interface (product participates in its own production — threshold under discussion, see <code>intelligence-scale-options.md</code>) / both</td>
+</tr>
+<tr class="even">
+<td><strong>D2. Lifecycle phase addressed</strong></td>
+<td>design / production / distribution / use / end-of-life / multiple</td>
+</tr>
+<tr class="odd">
+<td><strong>D3. Outcome optimized</strong></td>
+<td>process efficiency (cost, throughput, OEE) / conformance quality / flexibility &amp; customization / product capability or user outcome / sustainability / other</td>
+</tr>
+<tr class="even">
+<td><strong>D4. Data-flow direction</strong></td>
+<td>within-process / product→process (usage data feeds manufacturing/design) / process→product (production data enriches the delivered product) / bidirectional</td>
+</tr>
+<tr class="odd">
+<td><strong>D5. Enabling technology</strong></td>
+<td>free-coded then clustered (digital twin, IoT, ML, agents, …)</td>
+</tr>
+<tr class="even">
+<td><strong>D6. Research type</strong></td>
+<td>conceptual / model or method / case study / survey / review</td>
+</tr>
+</tbody>
+</table>
+<p>Pilot the rubric on 30 papers first; refine; then freeze and register.</p>
+<p><strong>v0.4 amendments from pilot 2 (random sample, 2026-07-14, see <code>pilot/2026-07-13-pilot2-random-30.md</code>):</strong> - Product-intelligence scheme adopted: two-axis Meyer-based coding per Teemu’s decision (capability C0–C3 × location L-obj/L-net/L-unstated), coded per lifecycle phase. <strong>Location axis is conditional on capability ≥ C1</strong> (undefined for C0 — ~95% of the random stratum needs one axis only). - Retrieval and DOCTYPE filtering must come from Scopus (OpenAlex <code>type=article</code> includes conference papers, repository preprints, and non-indexed venues — 13/30 exclusions in pilot 2). - Sampling for the real run: seeded random sample without replacement from the exported record set.</p>
+</section>
+<section id="rq3-bibliometric-plan-revised-2026-07-14-openalex-bias-options-under-decision" class="level2">
+<h2 class="anchored" data-anchor-id="rq3-bibliometric-plan-revised-2026-07-14-openalex-bias-options-under-decision">RQ3 bibliometric plan — REVISED (2026-07-14): OpenAlex-bias options under decision</h2>
+<p>Concern: OpenAlex indexes preprints, repositories, theses and non-curated venues, inflating citation counts and edge counts relative to Scopus/Web of Science. Options weighed:</p>
+<ul>
+<li><strong>(A) Hybrid node-validation</strong> — node set = Scopus-screened records only; OpenAlex used solely for edges between those validated nodes; dedupe preprint/published pairs by DOI; validate a 5% random edge sample against Scopus. Metrics restricted to <em>structural/relative</em> measures (cross-corpus citation share, coupling clusters), never absolute counts. Effort: low. Residual risk: reviewer optics in manufacturing venues; some parsed-reference noise remains.</li>
+<li><strong>(B) Web of Science export + VOSviewer/bibliometrix</strong> — “Full Record and Cited References” export (500–1,000 records/batch, ~10–14 batches for both corpora), standard bibliographic coupling + co-citation workflow. Reviewer-proof gold standard; now feasible (VPN access confirmed). Effort: moderate manual export work; WoS coverage narrower (document as limitation).</li>
+<li><strong>(C) Scopus CSV export with references</strong> — same idea via Scopus web UI (2,000-record batches). Comparable to (B); keeps everything in one database family with the screening.</li>
+<li><strong>(D) Outscope the network entirely; replace with a reference-list audit</strong> — for the coded random sample (~100+ papers), directly inspect reference lists and count citations landing in Corpus B (and vice versa for a Corpus B sample). No third-party citation index involved at all — immune to the bias by construction, simple to describe, and arguably more persuasive than a network figure at conference-paper scale.</li>
+</ul>
+<p><strong>DECISION (Teemu, 2026-07-14): Option (C) for the conference paper</strong> — Scopus CSV export with cited references (web UI, 2,000-record batches, via university VPN), bibliographic coupling and cross-corpus citation share computed from the exported reference lists (VOSviewer/bibliometrix). Everything stays in the same database family as the screening; OpenAlex is not used for any reported figure. Journal version: extend the same exports; option (A) may serve as a robustness cross-check only.</p>
+<ul>
+<li>Hypothesis unchanged: cross-corpus citation share is low (&lt;5%) and not increasing.</li>
+</ul>
+</section>
+<section id="quality-risk-of-bias-handling-clarified-v0.5" class="level2">
+<h2 class="anchored" data-anchor-id="quality-risk-of-bias-handling-clarified-v0.5">Quality / risk-of-bias handling (clarified v0.5)</h2>
+<p><strong>Why there is no per-study quality appraisal.</strong> In a medical systematic review, conclusions depend on each study’s <em>results</em>, so each study’s internal quality (randomization, blinding, …) must be graded. A mapping study is different: we do not use any paper’s findings — we only <em>classify</em> what each paper is about (locus, capability, outcome, phase). A methodologically weak paper still counts as valid evidence of where the field directs its attention. Following the standard guideline for mapping studies (Petersen, Vakkalanka &amp; Kuzniarz 2015, Information and Software Technology), individual-study appraisal is therefore omitted — reviewers of mapping studies expect this and the guideline citation answers it.</p>
+<p><strong>What we assess instead: threats to the validity of the MAP itself.</strong> Four, each with a concrete mitigation and a number that goes in the paper:</p>
+<ol type="1">
+<li><strong>Database coverage</strong> — could Scopus + Web of Science miss relevant journals? Mitigation: two-database union; report the overlap percentage and the count contributed uniquely by each.</li>
+<li><strong>Title-search recall</strong> — searching titles only (for tractability) misses papers that mention smart manufacturing only in the abstract. Mitigation (sensitivity check): for one sample year, also run the TITLE-ABS-KEY variant, screen the extra records, and report (a) how many relevant papers the title search missed and (b) whether the missed papers differ systematically on D1 — if the missed papers are just as processor-centric, the recall loss cannot have created the finding.</li>
+<li><strong>LLM-assisted coding</strong> — Claude codes all records; is that coding trustworthy? Mitigation: Teemu independently codes a random 10% of records blind to the LLM’s codes; agreement is reported as Cohen’s kappa (weighted kappa for the ordinal capability axis, simple kappa for the categorical locus and location axes), with threshold ≥ 0.8. Below threshold → revise the codebook, re-run the full coding, re-validate. The kappa values, the codebook, and the decision tree are published with the paper so the coding is reproducible.</li>
+<li><strong>Single primary coder</strong> — even validated, one coder’s systematic blind spots remain possible. Mitigation: the 10% dual-coding above, plus the published decision-tree codebook with worked boundary examples (C0: Zhong et al.&nbsp;2015; C3: Wang et al.&nbsp;2016), enabling independent replication. Acknowledged as a limitation.</li>
+</ol>
+</section>
+<section id="synthesis-and-outputs-clarified-v0.5" class="level2">
+<h2 class="anchored" data-anchor-id="synthesis-and-outputs-clarified-v0.5">Synthesis and outputs (clarified v0.5)</h2>
+<p>The synthesis is descriptive: cross-tabulations of the coded dimensions, each answering one specific question. Planned figures/tables:</p>
+<ol type="1">
+<li><strong>PRISMA 2020 flow diagram</strong> — records identified → deduplicated → screened → coded, with exclusion counts per criterion. Mandatory for the reporting standard.</li>
+<li><strong>Locus over time (D1 × publication year)</strong> — stacked shares of processor-machine / processor-human / interface / processee per year. Question answered: <em>is the field drifting toward the product at all, or only toward the worker (Industry 5.0 wave)?</em> Pilot expectation: processor share stays ≈100%; the only visible shift is machine→human.</li>
+<li><strong>Locus × outcome (D1 × D3) — the central evidence figure.</strong> A heatmap: where the intelligence sits (rows) against what the research optimizes (columns). The thesis predicts mass concentrated in one corner: processor-locus × process-efficiency outcomes, with the product-value/user-outcome column nearly empty <em>regardless of locus</em>. This single figure carries the paper’s claim — everything else is support.</li>
+<li><strong>Capability profile (C0–C3 × lifecycle phase)</strong> — histogram of product capability during manufacturing vs.&nbsp;during use. Question: <em>even when products get capabilities for the use phase, are they inert during their own production?</em> (Pilot 2: 18/18 C0 in manufacturing.) Location axis (L-obj/L-net) reported for the C1+ subset only.</li>
+<li><strong>Locus × venue (D1 × journal)</strong> — which journals host the rare interface/processee papers. Practical payoff: tells us (and readers) where the research agenda finds an audience.</li>
+<li><strong>RQ3 figure: bibliographic coupling map + cross-corpus citation share</strong> (from the Scopus reference exports, Option C) — visual evidence that the smart-manufacturing and smart-product literatures are distinct islands, plus the share of Corpus A references landing in Corpus B (hypothesis: &lt;5%, flat over time).</li>
+<li><strong>Narrative synthesis + research agenda (RQ4)</strong> — structured by the empty cells of figures 3–4: each gap that the maps expose becomes an agenda item, including the AI-enabled, user-adaptive product angle (products that remain intelligent <em>during</em> manufacturing and connect production to lifecycle value).</li>
+</ol>
+</section>
+<section id="publication-plan" class="level2">
+<h2 class="anchored" data-anchor-id="publication-plan">Publication plan</h2>
+<ol type="1">
+<li><strong>Conference first (2027):</strong> Procedia CIRP (CIRP Conference on Manufacturing Systems or CIRP Design) or IFIP Advances in Production Management Systems (APMS) — both DOI-issuing, indexed, realistic timelines, and standard PhD milestones. Condensed version: scoping + pilot coding.</li>
+<li><strong>Journal (extended, 2027–28):</strong> Journal of Manufacturing Systems, Computers in Industry, or International Journal of Production Research. Journal of Manufacturing Technology Management as a management-oriented fallback.</li>
+</ol>
+</section>
+<section id="positioning-against-closest-prior-work-must-cite" class="level2">
+<h2 class="anchored" data-anchor-id="positioning-against-closest-prior-work-must-cite">Positioning against closest prior work (must-cite)</h2>
+<ul>
+<li>Pessôa &amp; Jauregui Becker 2020, Research in Engineering Design (partial precedent — design-process focus, not locus-of-intelligence audit). doi:10.1007/s00163-020-00330-z</li>
+<li>Zheng et al.&nbsp;2019, Advanced Engineering Informatics (smart product-service systems survey). doi:10.1016/j.aei.2019.100973</li>
+<li>Raff, Wentzel &amp; Obwegeser 2020, Journal of Product Innovation Management. doi:10.1111/jpim.12544</li>
+<li>Meyer, Främling &amp; Holmström 2009, Computers in Industry. doi:10.1016/j.compind.2008.12.005</li>
+<li>Liu et al.&nbsp;2026, Advanced Engineering Informatics (data-driven smart product/service design review — check scope overlap when published). doi:10.1016/j.aei.2026.104534</li>
+</ul>
+</section>
+<section id="decisions-resolved-2026-07-13" class="level2">
+<h2 class="anchored" data-anchor-id="decisions-resolved-2026-07-13">Decisions (resolved 2026-07-13)</h2>
+<ol type="1">
+<li><strong>Conference-first</strong> — target Procedia CIRP (CIRP Conference on Manufacturing Systems or CIRP Design, 2027 cycle), extended journal version after.</li>
+<li><strong>Web of Science</strong>: institutional access confirmed (via university VPN) — use as second screening database alongside Scopus.</li>
+<li><strong>OSF registration</strong>: after pilot coding of 30 papers.</li>
+<li>**“cyber-physical production system*” added** to the Corpus A title string (done above). Note: citation counts reported in the paper should come from Scopus, not OpenAlex — OpenAlex counts run higher than curated databases. OpenAlex is used for the RQ3 network analysis only.</li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
