@@ -164,3 +164,13 @@ claims the system does, not what the technology could do.
 - Narrative material: `../notes/quotable-observations.md`
 - OSF registration draft: `osf-registration-draft.md`
 - Export procedure: `../data/EXPORT-INSTRUCTIONS.md`
+
+---
+
+## Amendment log (additions only; the frozen text above is never edited)
+
+- **2026-07-14 — Registration infrastructure.** Public repository:
+  https://github.com/tekonen/smart-product-manufacturing (tag `protocol-v1.0`, commit `3d0b7dd`).
+  OSF project: https://osf.io/sz3d2/ (public; GitHub add-on connected). OSF *registration*
+  pending submission — this entry will be amended with the registration URL and date once
+  submitted. Screening has not begun.
