@@ -135,3 +135,48 @@ clause.]
 
 **Conflicts of interest:** none declared; no party with an interest in the outcome is involved.
 Author has no affiliation with Anthropic, whose language model is used as a coding instrument.
+
+**Screening stages:** Stage 0 dedup (scripted, DOI + fuzzy title, overlap reported) → Stage 1
+title/abstract screening (LLM applying exclusion criteria E1–E6 with per-criterion decisions;
+blind human 10% validation, κ ≥ 0.80, below → revise + full re-screen) → Stage 2 coding of the
+sampled set (title/abstract, escalate to full text on adjacent-level ambiguity; conservative
+lower-code rule; borderline cases resolved by the human author).
+
+**Screened fields / blinding:** no blinding — title, abstract, year, venue, document type
+visible (year and venue are themselves coded variables; document-type and incidental-context
+criteria depend on them). Author names play no role in any rule. Mitigation = blind 10%
+dual-screening with pre-registered threshold.
+
+**Exclusion criteria (applied in order; first met = recorded reason):** E1 not a peer-reviewed
+journal article/review (conference papers → separate sensitivity set; editorials, chapters,
+preprints excluded); E2 full text not English; E3 smart manufacturing incidental to the paper's
+subject; E4 unit of analysis not a manufacturing system/technology (macro econ/policy);
+E5 duplicate; E6 retracted. Window/language additionally enforced by the search string.
+
+**Screener instructions:** in the registration-linked repository — protocol v1.0 §§6–8 +
+intelligence-scale-options.md (per-level test questions, worked examples: Zhong 2015 = C0,
+Wang 2016 = C3). The verbatim LLM screening prompt is archived in the repository as
+`protocol/screening-prompt.md` BEFORE screening begins.
+
+**Screening reliability:** two screeners, asymmetric roles — LLM screens all; human author
+independently screens a blind random 10% (validation sample drawn and human pass completed
+before viewing model decisions). Simple kappa for include/exclude + categorical codes, weighted
+kappa for the ordinal capability scale; κ ≥ 0.80 pre-registered; failure → revise instruments,
+re-screen all, re-validate on a fresh 10%. All kappas reported.
+
+**Reconciliation:** disagreements in the overlap sample reconciled only AFTER kappa computation;
+human decision final, reasons recorded; systematic ambiguities amend the codebook via the
+amendment log even when κ passes. Outside the overlap sample, model decisions are corrected only
+by full re-runs under a revised codebook — no ad-hoc single-record edits.
+
+**Sampling and sample size:** census of eligible records with ≥100 Scopus citations + seeded
+year-stratified random sample of the remainder; target 800–1,200 coded. Fallback: eligible
+corpus ≤2,000 → code all. Descriptive analysis, no power analysis; n≈1,000 gives ≤ ±3 pp
+(95% CI, worst case) for proportions. Seed archived in the amendment log before sampling;
+10% validation subsample (~80–120) adequate for kappa estimation.
+
+**Screening procedure justification:** LLM + blind human validation instead of dual-human
+screening (corpus scale vs. single-author feasibility; low-inference decisions; rigor via
+pre-registered instruments — archived prompt, κ threshold, re-run-not-spot-fix rule). No
+blinding (venue/year are study variables). Title-only search = precision at tractable scale,
+recall loss quantified by registered sensitivity check. Criteria piloted on 60 records.

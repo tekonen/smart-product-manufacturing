@@ -204,3 +204,15 @@ claims the system does, not what the technology could do.
      sampling stratum, database source) and defer to this protocol for full detail. The
      inter-rater agreement commitment (weighted/simple Cohen's kappa ≥ 0.80 on a blind 10%
      dual-coded sample) IS registered explicitly and is binding.
+  8. **Screening prompt pre-archival (blocking):** the verbatim LLM screening/coding prompt must
+     be committed to this repository as `protocol/screening-prompt.md` BEFORE screening begins.
+  9. **Validation independence:** the human 10% validation sample is drawn, and the human pass
+     completed, before the model's decisions for those records are viewed. Reconciliation happens
+     only after kappa computation; human decision is final with reasons recorded.
+  10. **No spot fixes:** outside the overlap sample, model decisions are corrected only by full
+     re-runs under a revised codebook — never by ad-hoc single-record edits.
+  11. **Sample-size fallback:** if the eligible corpus after screening is ≤2,000 records, ALL are
+     coded (no sampling). Otherwise: ≥100-citation census + seeded year-stratified random sample,
+     target 800–1,200 coded total.
+  12. Full registration form texts as submitted: see `osf-registration-draft.md`
+     ("Additional form fields", 2026-07-14).
