@@ -180,3 +180,17 @@ screening (corpus scale vs. single-author feasibility; low-inference decisions; 
 pre-registered instruments — archived prompt, κ threshold, re-run-not-spot-fix rule). No
 blinding (venue/year are study variables). Title-only search = precision at tractable scale,
 recall loss quantified by registered sensitivity check. Criteria piloted on 60 records.
+
+**Data management and sharing:** raw Scopus/WoS exports NOT shared (provider licensing);
+retained locally, reproducible via the published export procedure (queries, dates, field sets).
+Shared openly, no embargo, in the registration-linked GitHub repo: per-record screening
+decisions + all coded variables as CSV keyed by DOI (minimal citation metadata only — DOI,
+first author, year, venue); exclusion reason per excluded record; verbatim LLM prompt +
+codebook; merge/dedup/sampling scripts (Python) + archived seed; validation-sample agreement
+data. Formats: CSV / Markdown / Python.
+
+**Miscellaneous screening details:** (1) conference papers (E1) diverted to a separately
+reported sensitivity set, identical instruments; (2) two pre-registration pilots (60 screened /
+46 coded) disclosed as directional expectations, archived in the repo, reported separately from
+the registered run; (3) frozen protocol + dated amendment log discipline — frozen text never
+edited.

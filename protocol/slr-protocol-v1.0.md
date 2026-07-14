@@ -216,3 +216,9 @@ claims the system does, not what the technology could do.
      target 800–1,200 coded total.
   12. Full registration form texts as submitted: see `osf-registration-draft.md`
      ("Additional form fields", 2026-07-14).
+  13. **Data sharing:** raw Scopus/WoS exports are never published (provider licensing; enforced
+     by `.gitignore` on `data/raw/`). The shared artifacts are: per-record decisions + codes as
+     CSV keyed by DOI (minimal citation metadata), exclusion reasons, verbatim prompt + codebook,
+     scripts + seed, and validation agreement data — all in this repository, no embargo.
+  14. **Conference sensitivity set** is screened and coded with instruments identical to the main
+     corpus and reported separately.
