@@ -174,3 +174,33 @@ claims the system does, not what the technology could do.
   OSF project: https://osf.io/sz3d2/ (public; GitHub add-on connected). OSF *registration*
   pending submission — this entry will be amended with the registration URL and date once
   submitted. Screening has not begun.
+
+- **2026-07-14 — Commitments made in the OSF registration form** (binding; specified here so the
+  execution steps are followed, not just declared):
+
+  1. **Known-item search validation (MUST run before screening begins):** at merge time, verify
+     that the final Corpus A export contains ALL of these canonical papers — Kang et al. 2016
+     (doi:10.1007/s40684-016-0015-5); Kusiak 2017 (doi:10.1080/00207543.2017.1351644); Tao et al.
+     2018 (doi:10.1016/j.jmsy.2018.01.006); Monostori 2014 (doi:10.1016/j.procir.2014.03.115);
+     Wang et al. 2016 (doi:10.1016/j.comnet.2015.12.017). Any miss → revise the search string,
+     re-export, and record the revision in this log before screening.
+  2. **No snowballing for corpus construction:** no reference chasing (ascendancy) or citation
+     chasing (descendancy) may add records to either corpus — the corpus boundary must stay
+     reproducible AND RQ3 measures citation flows, which corpus-building via citations would
+     contaminate. Citation data are used analytically (RQ3, Scopus reference exports) only.
+  3. **No author contact:** all data come from published records and full texts.
+  4. **No grey literature:** peer-reviewed journal articles/reviews only, by design (conference
+     papers only as the separate sensitivity set already defined in §6).
+  5. **Interfaces of record:** Scopus via Elsevier's native web interface (scopus.com, Advanced
+     document search); Web of Science Core Collection via Clarivate's native web interface
+     (Advanced search). The Scopus API was used for scoping/pilots only.
+  6. **Software:** screening/coding = Claude (Anthropic LLM; exact model version recorded in this
+     repository at coding time) + independent human validation coding; record management =
+     scripted Python (pandas), scripts archived in this repository; full texts = Zotero;
+     RQ3 = VOSviewer and/or bibliometrix; audit trail = Git/GitHub. Software versions are
+     recorded in the repository as used.
+  7. **Registration form phrasing note:** the form's variables fields were kept deliberately
+     lean (descriptive mapping review, no associations; stratifiers = publication year, venue,
+     sampling stratum, database source) and defer to this protocol for full detail. The
+     inter-rater agreement commitment (weighted/simple Cohen's kappa ≥ 0.80 on a blind 10%
+     dual-coded sample) IS registered explicitly and is binding.

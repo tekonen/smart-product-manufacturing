@@ -85,3 +85,53 @@ separate from the registered coding run.
 
 **Timeline:** Screening and coding 2026 H2; conference submission (Procedia CIRP) 2027 cycle;
 extended journal version thereafter.
+
+---
+
+## Additional form fields (texts as submitted 2026-07-14; mirrored in protocol v1.0 amendment log)
+
+**Dependent/outcome/main variables:** the coded dimensions D1–D6 as defined in protocol §8
+(locus of intelligence; product capability C0–C3 per phase; intelligence location; lifecycle
+phase; outcome optimized; data-flow direction; enabling technology; research type), plus the
+RQ3 cross-corpus citation share.
+
+**Independent variables:** Not applicable — descriptive mapping review; no associations, effects,
+interventions, or treatments examined.
+
+**Additional variables/covariates:** None. Bibliographic metadata (publication year, venue) used
+descriptively; sampling stratum (≥100-citation census vs. seeded random sample) and database
+source reported as stratifiers. No covariates, moderators, or mediators modeled. Full detail in
+the archived protocol v1.0.
+
+**Databases:** Scopus; Web of Science Core Collection.
+
+**Interfaces:** Scopus via Elsevier's native web interface (scopus.com, Advanced document
+search); Web of Science via Clarivate's native web interface (Advanced search).
+
+**Grey literature:** none searched — eligibility restricted to peer-reviewed journal articles and
+reviews by design; conference papers captured only as a separate sensitivity set; preprints,
+theses, and reports excluded.
+
+**Search validation procedure:** (1) known-item validation — the final Corpus A export must
+contain Kang et al. 2016, Kusiak 2017, Tao et al. 2018, Monostori 2014, and Wang et al. 2016
+(DOIs in protocol amendment log); any miss triggers string revision + re-export, documented in
+the amendment log before screening. (2) Recall sensitivity check — title-only vs. TITLE-ABS-KEY
+for sample year 2019; miss rate and D1 profile of missed papers reported.
+
+**Other search strategies:** none for corpus construction — no ascendancy/descendancy
+(snowballing), because the corpus boundary must be reproducible and RQ3 measures citation flows,
+which citation-based corpus building would contaminate. Citation data used analytically only.
+
+**Author contact:** none; all data from published records. Results of contacting authors: N/A.
+
+**Software:** Scopus + Web of Science (native web interfaces) for retrieval; Claude (Anthropic
+LLM via Claude Code, model version recorded in the repository at coding time) for screening/coding
+with independent human validation; Python (pandas) scripts (archived in the repository) for
+merge/dedup/sampling; Zotero for full texts; VOSviewer and/or bibliometrix for RQ3; Git/GitHub
+for versioning. Versions recorded in the repository as used.
+
+**Funding:** [Teemu fills the true variant — unfunded, or funder named, with "funder has no role"
+clause.]
+
+**Conflicts of interest:** none declared; no party with an interest in the outcome is involved.
+Author has no affiliation with Anthropic, whose language model is used as a coding instrument.

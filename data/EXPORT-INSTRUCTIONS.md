@@ -44,6 +44,19 @@ Scopus, one sample year (2019), TITLE-ABS-KEY variant of the Corpus A query, CSV
 references → `scopus_corpusA_sensitivity_2019_titleabskey.csv`. Used to quantify title-search
 recall loss (protocol §9.2).
 
+## What Claude runs at merge time (registered commitments)
+
+1. **Known-item validation (blocking):** confirm the merged Corpus A contains all five canonical
+   papers listed in the protocol v1.0 amendment log (Kang 2016, Kusiak 2017, Tao 2018,
+   Monostori 2014, Wang 2016 — by DOI). Any miss blocks screening: revise string, re-export,
+   log the revision.
+2. Batch-truncation reconciliation (per-year counts vs. export files).
+3. Deduplication (DOI + fuzzy title) across Scopus and Web of Science; report overlap % and
+   unique contributions per database.
+4. Seeded random sample (seed = ISO date of merge run, archived in the amendment log) +
+   ≥100-citation census stratum.
+5. PRISMA identification numbers reported back.
+
 ## Notes
 
 - Keep the Scopus result page's exact total per query — the PRISMA "records identified" numbers
