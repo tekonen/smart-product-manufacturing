@@ -91,10 +91,23 @@ repository preprints; duplicates and retracted items.
 
 1. Export both corpora from Scopus and Web of Science (CSV; see `data/EXPORT-INSTRUCTIONS.md`);
    merge and deduplicate by DOI + fuzzy title.
-2. Screening and coding basis: Scopus abstracts (Semantic Scholar by DOI as fallback). OpenAlex
-   abstracts are not used (≈40% missing for closed-access records).
-3. LLM-assisted screening (Claude codes all sampled records) with human validation (§9.3).
-4. **Sampling for coding:** census of all records with ≥100 Scopus citations (influential core)
+2. **Text basis (amended v1.1):** *Screening* (include/exclude) is performed on title and abstract
+   (Scopus abstracts; Semantic Scholar by DOI as fallback; OpenAlex abstracts not used — ≈40%
+   missing for closed-access records). *Coding* of the sampled records is performed on the **full
+   text** of each paper; the abstract is used only to locate the relevant passages. Where full text
+   is unavailable, the record is coded from title, abstract, and any accessible sections and flagged
+   as abstract-only for separate reporting. This aligns coding with the standard for LLM-assisted
+   extraction (Khraisha et al. 2024; Khan et al. 2025).
+3. LLM-assisted screening and coding (Claude processes all sampled records) with human validation
+   (§9.3).
+4. **Stateless per-record processing (amended v1.1):** every record is screened and coded in an
+   independent, stateless model call — the context contains only the fixed system prompt
+   (criteria/codebook) plus that single record. No record's classification is conditioned on any
+   other record. This eliminates cross-record memory, order/anchoring effects, and dilution of the
+   criteria that would occur if records were processed in one accumulating context; it makes the
+   process order-invariant and re-runnable. Empirical check: the blind 10% human dual-coding with
+   the κ ≥ 0.80 threshold (§9.3).
+5. **Sampling for coding:** census of all records with ≥100 Scopus citations (influential core)
    + seeded random sample without replacement from the remainder, stratified by year, target
    n≈800–1,200 coded in total. Both strata reported separately.
 
@@ -154,6 +167,14 @@ claims the system does, not what the technology could do.
   doi:10.1016/j.compind.2008.12.005
 - Liu et al. 2026, Advanced Engineering Informatics (check scope overlap at publication).
   doi:10.1016/j.aei.2026.104534
+
+**Methods precedents (LLM-assisted screening/extraction with human validation):**
+- Khraisha, Van Put, Kappenberg, Warraitch & Hadfield 2024, Research Synthesis Methods —
+  pre-registered GPT-4 screening + full-text extraction, human-out-of-the-loop. doi:10.1002/jrsm.1715
+- Khan et al. 2025, Journal of the American Medical Informatics Association — collaborative LLM
+  data extraction mimicking a two-reviewer process. doi:10.1093/jamia/ocae325
+- Marzi, Balzano, Caputo & Pellegrini 2024, International Journal of Management Reviews —
+  Bibliometric-Systematic Literature Review guidelines (RQ3 method). doi:10.1111/ijmr.12381
 
 ## 13. Supporting documents
 
@@ -222,3 +243,18 @@ claims the system does, not what the technology could do.
      scripts + seed, and validation agreement data — all in this repository, no embargo.
   14. **Conference sensitivity set** is screened and coded with instruments identical to the main
      corpus and reported separately.
+
+- **2026-07-25 — Two coding-method strengthenings (v1.1), approved by Teemu; applied to §7 and the
+  OSF draft before registration:**
+  1. **Full text is the default basis for CODING** the sampled records (screening stays on
+     title/abstract). Abstract-only coding occurs solely when full text is unavailable and is
+     flagged for separate reporting. Rationale: aligns extraction with published LLM-assisted-review
+     practice (Khraisha et al. 2024; Khan et al. 2025).
+  2. **Stateless per-record processing:** each record is screened/coded in an independent model call
+     (context = fixed system prompt + one record only); no record is conditioned on any other.
+     Removes cross-record memory, order/anchoring effects, and criteria-dilution; makes the process
+     order-invariant and re-runnable. Verified by the blind 10% dual-coding + κ ≥ 0.80.
+
+- **2026-07-25 — Corpus decision.** Existing Zotero collections (earlier, different searches) are
+  NOT used. A fresh screening corpus is built from the registered Corpus A search strings via
+  Scopus + Web of Science exports, only after registration.
