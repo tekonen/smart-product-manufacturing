@@ -176,6 +176,20 @@ claims the system does, not what the technology could do.
 - Marzi, Balzano, Caputo & Pellegrini 2024, International Journal of Management Reviews —
   Bibliometric-Systematic Literature Review guidelines (RQ3 method). doi:10.1111/ijmr.12381
 
+**AI-use governance (informs how AI is used in this work — cite in the manuscript's AI-use
+statement; compliance mapping in the amendment log entry 2026-09-12):**
+- Thomas, Hair, Noel-Storr et al. 2026, *Responsible use of AI in Evidence Synthesis (RAISE):
+  recommendations for practice* (v3, 13 March 2026), Open Science Framework, Center for Open
+  Science. doi:10.17605/OSF.IO/FWAUD (https://osf.io/cqa82). Governs the evidence-synthesist role
+  (recommendations 1.1–1.10): accountability, justification, no AI authorship, transparent
+  reporting of AI use per PRISMA, and ethical/legal/licensing standards.
+- Shalpegin, Browning, Kumar, Shang, Thatcher, Fransoo, Holweg & Lawson 2025, *Generative AI and
+  Empirical Research Methods in Operations Management*, Journal of Operations Management, 71(5),
+  578–587. doi:10.1002/joom.1371. Discipline-specific guidance for the operations/manufacturing
+  research context.
+- (PRISMA 2020 — already the reporting standard, §3 — includes items on automation-tool reporting
+  invoked by RAISE 1.9.)
+
 ## 13. Supporting documents
 
 - Decision history: `slr-protocol-v0.1.md` (v0.1–v0.5 with rationale per change)
@@ -258,3 +272,31 @@ claims the system does, not what the technology could do.
 - **2026-07-25 — Corpus decision.** Existing Zotero collections (earlier, different searches) are
   NOT used. A fresh screening corpus is built from the registered Corpus A search strings via
   Scopus + Web of Science exports, only after registration.
+
+- **2026-09-12 — AI-use governance adopted (RAISE 2026 + Shalpegin et al. 2025).** These now inform
+  how AI is used in this work; added to §12 references. Compliance mapping against RAISE
+  recommendations for evidence synthesists (1.1–1.10):
+  - 1.1 accountability — MET: Teemu is sole human author, accountable for the decision to use AI,
+    how it is used, and its impact.
+  - 1.3 justification / methodological soundness — MET: §7 + OSF 376-84/106, with tool evaluations
+    cited (Khraisha 2024, Khan 2025).
+  - 1.4 no AI authorship — MET: Claude is a tool/instrument, not an author; disclosed as such.
+  - 1.5 no fabrication/falsification — MET: factual-integrity stance; AI classifies provided text only.
+  - 1.7 chatbot-not-knowledge-base — MET by design: stateless per-record coding classifies the
+    supplied paper text; the model is NOT queried as a factual knowledge source. (Make explicit in
+    the manuscript AI-use statement.)
+  - 1.8 declare AI where it makes judgements (eligibility, extraction, synthesis) — MET: screening
+    and coding are LLM-assisted and disclosed.
+  - 1.9 transparent reporting per PRISMA — MET: model name/version/date recorded; purpose + parts
+    impacted; justification with cited evaluations; validation via κ≥0.80 + pilots; prompt, codebook,
+    scripts, seed, coded CSV published; limitations/biases discussed. TODO at write-up: state AI-tool
+    funding source (subscription/API) alongside COI.
+  - 1.6 AI-written papers in the corpus — GAP: add a limitation noting the growing prevalence of
+    AI-written papers among 2012–2026 records and its possible effect on coding. (To add before
+    submission.)
+  - **1.10 ethical/legal/licensing — OPEN FLAG (raised to Teemu 2026-09-12): the v1.1 full-text
+    coding decision means sending full copyrighted publisher texts to the Claude API. RAISE 1.10
+    requires considering copyright, IP, licensing, confidentiality. NEEDS a decision before full-text
+    coding is implemented** — verify Anthropic API data-use terms (no training on API inputs by
+    default) and the publisher/institutional licence for machine processing of subscribed full texts;
+    document the conclusion here. Until resolved, do not send full-text PDFs to the model.
