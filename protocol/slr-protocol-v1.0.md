@@ -294,9 +294,17 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
   - 1.6 AI-written papers in the corpus — GAP: add a limitation noting the growing prevalence of
     AI-written papers among 2012–2026 records and its possible effect on coding. (To add before
     submission.)
-  - **1.10 ethical/legal/licensing — OPEN FLAG (raised to Teemu 2026-09-12): the v1.1 full-text
-    coding decision means sending full copyrighted publisher texts to the Claude API. RAISE 1.10
-    requires considering copyright, IP, licensing, confidentiality. NEEDS a decision before full-text
-    coding is implemented** — verify Anthropic API data-use terms (no training on API inputs by
-    default) and the publisher/institutional licence for machine processing of subscribed full texts;
-    document the conclusion here. Until resolved, do not send full-text PDFs to the model.
+  - **1.10 ethical/legal/licensing — RESOLVED 2026-09-12. Full-text coding may proceed.**
+    - CONFIDENTIALITY + TRAINING — cleared per Anthropic's API & data-retention documentation
+      (platform.claude.com/docs/en/manage-claude/api-and-data-retention): "Retained data is never
+      used for model training without your express permission"; "Conversation content (your prompts
+      and Claude's outputs) is not retained by default" (exception: Covered Models = Fable/Mythos
+      5.x require 30-day retention; Opus 4.8 is NOT a Covered Model). Carve-outs, neither being
+      training: flagged content up to 2 years; consumer/Claude Code local transcripts 6 years by
+      default. Preferred posture for the coding pipeline: Commercial API key with Zero Data Retention
+      (prompts/outputs not stored at rest, no training).
+    - COPYRIGHT / IP / LICENSING — confirmed cleared by Teemu (2026-09-12): the API providers'
+      terms do not restrict the use of papers for academic-research purposes, and the
+      library/publisher licensing terms (text-and-data-mining rights for subscribed content) permit
+      the intended machine processing. Full-text coding of subscribed content via the API is therefore
+      permitted for this study.
