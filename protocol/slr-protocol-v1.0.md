@@ -291,9 +291,17 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
     impacted; justification with cited evaluations; validation via κ≥0.80 + pilots; prompt, codebook,
     scripts, seed, coded CSV published; limitations/biases discussed. TODO at write-up: state AI-tool
     funding source (subscription/API) alongside COI.
-  - 1.6 AI-written papers in the corpus — GAP: add a limitation noting the growing prevalence of
-    AI-written papers among 2012–2026 records and its possible effect on coding. (To add before
-    submission.)
+  - 1.6 AI-written papers in the corpus — ADDRESSED 2026-09-12 (manuscript limitation text below).
+    Judged low-risk for this study: (a) the target peer-reviewed engineering/operations venues do
+    not accept AI as an author, so AI-authored papers are not expected in the corpus; (b) where
+    authorship rests with people, the human authors carry ultimate responsibility for the content
+    regardless of AI-assisted writing; and (c) this review's unit of analysis is each paper's stated
+    focus — where intelligence is located and which outcome is optimized — which is unaffected by
+    whether the prose was AI-assisted. Manuscript limitation sentence to include: "Consistent with
+    RAISE recommendation 1.6, we note the growing prevalence of AI-assisted authorship; we judge its
+    effect on this mapping negligible because our coding targets each paper's stated research focus
+    (not its writing), the target venues do not grant AI authorship, and human authors remain
+    accountable for content."
   - **1.10 ethical/legal/licensing — RESOLVED 2026-09-12. Full-text coding may proceed.**
     - CONFIDENTIALITY + TRAINING — cleared per Anthropic's API & data-retention documentation
       (platform.claude.com/docs/en/manage-claude/api-and-data-retention): "Retained data is never
