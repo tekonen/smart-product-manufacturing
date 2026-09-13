@@ -273,6 +273,13 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
   NOT used. A fresh screening corpus is built from the registered Corpus A search strings via
   Scopus + Web of Science exports, only after registration.
 
+- **2026-09-13 — Added search-scope validation (data-validation step).** In addition to known-item
+  validation and coding kappa, the record volume returned by the AI/API-supported search workflow
+  is cross-checked against the count a human obtains by entering the same query directly in each
+  service's native web interface (Scopus; Web of Science). Any material discrepancy is investigated
+  and resolved before screening, confirming the retrieved scope is consistent and correct. (Added to
+  OSF field 376-118.)
+
 - **2026-09-12 — AI-use governance adopted (RAISE 2026 + Shalpegin et al. 2025).** These now inform
   how AI is used in this work; added to §12 references. Compliance mapping against RAISE
   recommendations for evidence synthesists (1.1–1.10):
