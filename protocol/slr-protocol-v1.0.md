@@ -131,8 +131,9 @@ claims the system does, not what the technology could do.
 ## 9. Validity threats and mitigations (no per-study quality appraisal — mapping-study genre)
 
 1. **Database coverage** — two-database union; report overlap % and unique contributions.
-2. **Title-search recall** — sensitivity check: one sample year re-run as TITLE-ABS-KEY; screen
-   the extra records; report the miss rate and whether missed papers differ on D1.
+2. **Title-search recall** — a recall check compares the title-based search against a broader
+   TITLE-ABS-KEY search on part of the corpus, to gauge whether missed records differ materially on
+   D1; parameters and results are reported with the review.
 3. **LLM coding validity** — blind human dual-coding of a random 10%; weighted Cohen's kappa
    (capability axis), simple kappa (locus, location); threshold ≥0.8; below → revise codebook,
    recode all, re-validate. Kappas, codebook, and decision tree published.
