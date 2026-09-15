@@ -210,6 +210,12 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
   OSF project: https://osf.io/sz3d2/ (public; GitHub add-on connected). OSF *registration*
   pending submission — this entry will be amended with the registration URL and date once
   submitted. Screening has not begun.
+  UPDATE 2026-09-13/15: first registration attempt (draft → https://osf.io/wpbc7/) FAILED during
+  OSF archiving (the linked GitHub add-on snapshot did not complete). No registration timestamp was
+  retained. The stray blank OSF-Preregistration draft was deleted during this attempt. Plan: with
+  the repository committed and stable, Teemu re-runs the registration from the Systematic Review
+  draft; this entry will be updated with the successful registration URL, finalization date, and
+  minted DOI once archiving completes. Screening has not begun.
 
 - **2026-07-14 — Commitments made in the OSF registration form** (binding; specified here so the
   execution steps are followed, not just declared):
