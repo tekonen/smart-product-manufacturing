@@ -9,8 +9,9 @@ Three subcommands, run in this order (registered in OSF w9vj4 and protocol §7 /
 
   prescreen  Remove records BEFORE screening (PRISMA "records removed before screening"):
              E1 = Web of Science records whose publication type is book / book series
-                  (S/B — "Article; Book Chapter"), which the Zotero import stores as journal
-                  articles; matched by DOI, else normalized title, to the WoS web export.
+                  (S/B — "Article; Book Chapter") AND that the journal-only Scopus query did not
+                  also retrieve (a Scopus hit means a journal that WoS files as a series, e.g.
+                  "Annual Review of ..."); matched by DOI, else normalized title.
              E6 = retracted items, as placed by Teemu in the Zotero collection "E6 retracted".
              Tags each item `prescreen:E1|E6` + `abstract:exclude` (+ `retracted:flag` for E6),
              so the plugin's abstract_screen.py skips them. Dry run unless --apply.
@@ -117,6 +118,18 @@ def cmd_prescreen(args) -> None:
            & web["Language"].fillna("").str.strip().str.lower().eq("english"))
     nonj = web[reg & web["Publication Type"].fillna("").str.strip().str.upper().isin(["S", "B"])]
     nonj = nonj.drop_duplicates("UT (Unique WOS ID)")
+    # Keep records that Scopus ALSO retrieved: the Scopus query is journal-only (SRCTYPE(j)), so a
+    # Scopus hit means a journal publication that WoS merely files under a series (e.g. the
+    # "Annual Review of ..." review journals). Only WoS-only book/series records are E1.
+    api = pd.read_csv("analysis/raw/corpusA/search_results_raw.csv", dtype=str)
+    sc = api[api["db"].str.lower().eq("scopus")]
+    sc_doi = {norm_doi(d) for d in sc["doi"]} - {""}
+    sc_title = {norm_title(t) for t in sc["title"]}
+    in_scopus = nonj.apply(lambda r: norm_doi(r.get("DOI")) in sc_doi
+                           or norm_title(r.get("Article Title")) in sc_title, axis=1)
+    kept_as_journal = list(nonj.loc[in_scopus, "Article Title"])
+    nonj = nonj[~in_scopus]
+    print(f"WoS book/series records also retrieved by Scopus as journal items (kept): {len(kept_as_journal)}")
     e1, e1_unmatched = {}, []
     for _, r in nonj.iterrows():
         k = by_doi.get(norm_doi(r.get("DOI"))) or by_title.get(norm_title(r.get("Article Title")))
@@ -143,6 +156,8 @@ def cmd_prescreen(args) -> None:
         "generated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "corpus_a_items": len(items),
         "E1_non_journal": sorted(e1), "E1_unmatched_titles": e1_unmatched,
+        "E1_rule": "WoS publication type S/B AND not retrieved by the journal-only Scopus query",
+        "kept_WoS_series_but_Scopus_journal_titles": kept_as_journal,
         "E6_retracted": sorted(e6),
         "screening_pool": len(items) - len(e1) - len(e6),
     }

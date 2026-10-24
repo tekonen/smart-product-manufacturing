@@ -385,3 +385,12 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
   flow diagram). Abstracts: 46 missing after import; 11 recovered; 35 remain (→ borderline at
   stage 1, decided at full text). Stage-1 screening prompt v1-2026-10-24 approved by Teemu and
   archived verbatim in `protocol/screening-prompt.md` before any screening, as registered.
+
+- **2026-10-24 — E1 pre-screen rule refined (before any screening).** The registered Web of Science
+  query filters document type, not source type, so it admits book chapters typed "Article; Book
+  Chapter". These are excluded under E1 before screening, but only when Web of Science files the
+  record as a book or book series (publication type B/S) AND the journal-only Scopus query did not
+  also retrieve it. One record (Annual Review of Chemical and Biomolecular Engineering, a review
+  journal that Web of Science files as a series) was retrieved by Scopus as a journal item and is
+  therefore kept. Result: 25 E1 pre-screen exclusions (was 26). Rule and keys:
+  `analysis/validation/prescreen_exclusions.json`.
