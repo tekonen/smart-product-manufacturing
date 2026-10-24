@@ -35,3 +35,7 @@ logged as a dated entry in the protocol amendment log.
    - Web of Science mirrors: same terms via `TI=`, 2012–2026, Article + Review, English.
 
 Preregistration: done (OSF w9vj4, 2026-10-03). Screening has not begun.
+
+Screening protocol (2026-10-24): abstract-screening prompt v1-2026-10-24 approved by Teemu —
+inclusion I1–I3, exclusion E1–E4 (E5/E6 outside prompt), liberal bias, Haiku 4.5 at temperature 0;
+archived verbatim in protocol/screening-prompt.md. 26 WoS book-chapter records → E1 by metadata.

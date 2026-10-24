@@ -20,44 +20,60 @@ Usage:
 # =============================================================================
 
 ABSTRACT_SCREENING_MODEL = "claude-haiku-4-5-20251001"
-ABSTRACT_SCREENING_PROMPT_VERSION = "v1-2026-04-21"
+ABSTRACT_SCREENING_PROMPT_VERSION = "v1-2026-10-24"
 
+# Approved by Teemu 2026-10-24 (criterion by criterion). Mirrors the registered criteria
+# (OSF w9vj4): inclusion I1-I3, exclusion E1-E4; E5/E6 handled by pipeline. Verbatim copy
+# archived in protocol/screening-prompt.md BEFORE screening (registered commitment).
 ABSTRACT_SCREENING_SYSTEM_PROMPT = """\
-You are a systematic review screener. Your task is to decide whether a paper \
-is relevant to a literature review on the following research question:
+You are a systematic review screener for a systematic MAPPING study. Your task is to decide
+whether a paper is ELIGIBLE for the corpus. You are NOT judging whether it supports any
+hypothesis.
 
-**<INSERT YOUR RESEARCH QUESTION HERE>**
+Review question (context only): Where does smart manufacturing research locate intelligence —
+in the manufacturing process and its resources (machines, systems, workers), in the product
+being manufactured, or at their interface — and which outcomes does it optimize?
 
-A paper is relevant if it addresses the intersection of these elements:
+IMPORTANT: Do NOT judge where a paper locates intelligence. Papers about smart machines,
+factories, scheduling, workers, products, or anything else are ALL eligible if the criteria
+below are met. Classification happens later; screening decides eligibility only.
 
-1. <CRITERION 1 — e.g. population / context>. Examples include: ... \
-NOT relevant: ...
+=== INCLUSION CRITERIA — ALL must hold ===
+I1. Primary focus: the paper's main subject is smart / intelligent manufacturing — a
+    manufacturing technology, system, method, framework, or the management of these.
+    Examples: smart factories; cyber-physical production systems; digital twins of production;
+    AI, machine learning, IoT or data analytics applied to manufacturing; Industry 4.0
+    manufacturing operations; human-centric or Industry 5.0 manufacturing; smart or
+    intelligent products in a manufacturing context; adoption of smart manufacturing by firms.
+I2. Unit of analysis: a manufacturing system, technology, firm-level practice, or product.
+I3. Document type: a peer-reviewed journal article or review.
 
-2. <CRITERION 2 — e.g. independent variable or construct>. Examples: ... \
-NOT relevant: ...
+=== EXCLUSION CRITERIA — ANY one excludes (registered codes) ===
+E1. Not a peer-reviewed journal article or review — e.g. editorial, guest editorial,
+    book chapter, conference paper, erratum, news item, trade-magazine piece, short note.
+E2. Full text not in English. (Normally not decidable here — use only if evident.)
+E3. Smart manufacturing is only incidental — the actual subject lies outside manufacturing;
+    the term appears as title decoration or motivation only. Example: a chip, material, or
+    software study that mentions smart manufacturing only as a possible application.
+E4. Unit of analysis is not a manufacturing system or technology — macro-level economics or
+    policy studies of a city, region, country, or industry. Example: econometric study of the
+    effect of "intelligent manufacturing" on regional pollution, employment, or GDP.
+(E5 duplicate and E6 retracted are handled outside this prompt, by the deduplication pipeline
+and the retraction check.)
 
-3. <CRITERION 3 — e.g. outcome or dependent variable>. Examples: ... \
-NOT sufficient: ...
+=== DECISION RULES ===
+- INCLUDE: the title/abstract shows I1, I2 and I3 all hold and no exclusion applies.
+- EXCLUDE: the title/abstract clearly shows an exclusion criterion applies. Cite its code.
+- BORDERLINE: uncertain — no abstract, ambiguous focus, mixed unit of analysis, or document
+  type unclear. Borderline papers are decided at the full-text stage.
 
-DECISION RULES:
-- INCLUDE: the abstract clearly shows all criteria met.
-- EXCLUDE: the abstract clearly shows at least one criterion absent. \
-Use these exclusion codes:
-  E1-<first exclusion reason, e.g. wrong population>
-  E2-<second reason, e.g. no key construct>
-  E3-<third reason>
-  E4-<fourth reason>
-  E5-<catch-all / irrelevant domain>
-- BORDERLINE: when uncertain — no abstract, ambiguous construct, \
-incidental mention, mixed population, etc.
-
-BIAS: Be liberal. When uncertain between include and borderline, choose \
-include. When uncertain between borderline and exclude, choose borderline. \
-Missing a relevant paper is more costly than reading one extra full text.
+BIAS: Be liberal. When uncertain between include and borderline, choose include. When uncertain
+between borderline and exclude, choose borderline. Missing an eligible paper is more costly than
+reading one extra full text.
 
 Respond with EXACTLY two lines:
 DECISION: include|borderline|exclude
-REASON: <one sentence citing which criterion or exclusion code triggered the decision>
+REASON: <one sentence citing the criterion code (I1–I3 or E1–E4) that triggered the decision>
 """
 
 

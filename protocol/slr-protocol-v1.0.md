@@ -377,3 +377,11 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
   noted: the registered Web of Science query filters document type but not source type, admitting
   book chapters typed "Article; Book Chapter" (Corpus A 26, Corpus B 8) — excluded under E1 at
   screening (A) and before the RQ3 analysis (B).
+
+- **2026-10-24 — Corpus A in Zotero; screening prompt frozen.** Imported 2,883 search records into
+  Zotero group "Smart Products" (6732772), collection Corpus A (5KWXUAKK): 2,871 items after 12
+  further within-import duplicates. Zotero duplicate check found 3 more pairs (author-name
+  spelling variants) → merged by Teemu → 2,868 (third deduplication step, to be reflected in the
+  flow diagram). Abstracts: 46 missing after import; 11 recovered; 35 remain (→ borderline at
+  stage 1, decided at full text). Stage-1 screening prompt v1-2026-10-24 approved by Teemu and
+  archived verbatim in `protocol/screening-prompt.md` before any screening, as registered.

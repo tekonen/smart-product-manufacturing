@@ -1,0 +1,29 @@
+Fetching Zotero items... 2871 journal articles.
+  After --filter-keys-file: 46 items.
+Missing abstracts (with DOI): 23
+Active fetchers: ['crossref', 'semantic_scholar', 'scopus', 'wos', 'sciencedirect', 'openalex']
+[1/23] INTERFACING CYBER-PHYSICAL PRODUCTION SYSTEMS WITH HUMAN DECISION MAKE (scopus) → updated
+[2/23] Intelligent Manufacturing in Digital Manufacturing Science             (scopus) → updated
+[3/23] Smart Manufacturing Units                                              (scopus) → updated
+[4/23] Evaluation Model for Assessment of Cyber-Physical Production Systems   no abstract found
+[5/23] Big Data and Machine Learning for the Smart Factory-Solutions for Cond no abstract found
+[6/23] Applying Multi-objective Optimization Algorithms to a Weaving Machine  no abstract found
+[7/23] SMART MANUFACTURING IN A SoSE PERSPECTIVE                              (scopus) → updated
+[8/23] Smart Manufacturing and Industry 4.0                                   (crossref) → updated
+[9/23] New thinking for the development of Taiwan's services sector with the  (crossref) → updated
+[10/23] INDUSTRY 4.0: THE SMART FACTORY OF THE FUTURE IN BEVERAGE INDUSTRY     (semantic_scholar) → updated
+[11/23] Agent-based coupling of production plants: Concept for cyber-physical  no abstract found
+[12/23] THE NEED OF DYNAMIC AND ADAPTIVE DATA MODELS FOR CYBER-PHYSICAL PRODUC (scopus) → updated
+[13/23] New Trends in Intelligent Manufacturing                                (wos) → updated
+[14/23] Intelligent Manufacturing                                              no abstract found
+[15/23] Smart manufacturing widens pharma's horizons                           no abstract found
+[16/23] How smart manufacturing can help combat the COVID-19 pandemic          (crossref) → updated
+[17/23] Smart Factory Systems                                                  no abstract found
+[18/23] Smart manufacturing                                                    no abstract found
+[19/23] Digitalising smart factories                                           (semantic_scholar) → updated
+[20/23] Shuttle Launch: Cellares’ Smart Factories Aim to Meet Cell Therapy Dem no abstract found
+[21/23] Greentelligence: Smart Manufacturing for a Greener Future              no abstract found
+[22/23] Guest Editorial Special Section on New Frontiers in Smart Factories: S no abstract found
+[23/23] Process Mining and Privacy in Smart Manufacturing                      no abstract found
+
+Done. updated=11, skipped=12, failed=0
