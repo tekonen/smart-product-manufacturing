@@ -7,3 +7,13 @@ data/raw/
 
 # Claude Code local settings (machine-specific)
 .claude/settings.local.json
+
+# Systematic-review pipeline outputs — licensed/copyrighted content, never publish
+# (registered data sharing: only sanitized DOI-keyed decision/coding CSVs are released)
+analysis/raw/
+pdfs/
+screening/*.csv
+screening/*.log
+
+# Python bytecode
+__pycache__/

@@ -335,3 +335,35 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
       library/publisher licensing terms (text-and-data-mining rights for subscribed content) permit
       the intended machine processing. Full-text coding of subscribed content via the API is therefore
       permitted for this study.
+
+- **2026-10-24 — Retrieval procedure (post-registration; scope and queries unchanged).** The
+  corpus is retrieved by the scripted API searches of the academic-research pipeline (Scopus API +
+  Web of Science Expanded API) running the registered title strings verbatim
+  (`search_config.py` = Corpus A, `search_config_corpusB.py` = Corpus B, run separately so the
+  corpora never merge). The manual web-interface searches by Teemu remain required for (a) the
+  registered search-scope validation (API count vs human web-interface count per database) and
+  (b) the RQ3 cited-reference exports (Scopus CSV with references, Option C). The pipeline's
+  searchers were patched to omit the journal ISSN filter when no journal list is given
+  (`scripts/plugin-patches/`), since the registered design has no journal filter. Screening
+  corpus lives in the new Zotero group library "Smart Products" (group 6732772); earlier Zotero
+  collections are not used. Known caveat recorded, not changed: Web of Science does not stem
+  phrases, so registered WoS phrases (e.g. "smart factory") may miss plural forms; the Scopus +
+  WoS union and the recall check bound this effect.
+
+- **2026-10-24 — Corpus A search run + two DEVIATIONS from the registration (Teemu's decisions).**
+  Search (scripted API, registered strings verbatim): Scopus 2,742; Web of Science 2,294; 5,036 raw;
+  2,883 unique after DOI + title/first-author deduplication (102 without DOI). Metadata:
+  `analysis/corpusA/search_metadata.json`, integrity marker `analysis/corpusA/search_run.json`.
+  - **Deviation 1 — known-item validation set corrected.** 4 of 5 canonical papers retrieved
+    (Kang 2016, Kusiak 2017, Tao 2018, Wang 2016). Monostori 2014 (doi:10.1016/j.procir.2014.03.115)
+    was not retrieved because Scopus and Web of Science classify Procedia CIRP as conference
+    proceedings; the registered journal-only criterion (E1) therefore excludes it correctly. It had
+    entered the known-item list because OpenAlex (used in piloting) types it as an article. The
+    registered remedy ("revise the search string") would contradict E1, so the string is NOT
+    revised; the known-item set is corrected to the four eligible items, which all pass. No
+    substitute item was added after seeing results (avoids post-hoc selection). Validation: PASS.
+  - **Deviation 2 — conference-paper sensitivity set not produced.** The registration lists a
+    separately reported conference-paper sensitivity set, but the registered query itself excludes
+    conference papers (SRCTYPE(j), DOCTYPE ar/re), so none are retrieved. Teemu decided not to run
+    a separate conference-paper search; this registered sensitivity analysis is dropped and will be
+    reported as a deviation in the manuscript.

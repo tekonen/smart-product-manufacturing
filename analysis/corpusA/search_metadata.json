@@ -1,0 +1,26 @@
+{
+  "search_date_start": "2026-10-24T07:36:22.975822+00:00",
+  "search_date_end": "2026-10-24T07:38:38.112231+00:00",
+  "databases": [
+    "scopus",
+    "wos"
+  ],
+  "from_year": 2012,
+  "to_year": 2026,
+  "journals": {},
+  "journal_count": 0,
+  "per_database_counts": {
+    "scopus": 2742,
+    "wos": 2294
+  },
+  "total_raw_rows": 5036,
+  "total_unique_records": 2883,
+  "records_without_doi": 102,
+  "query_defs": [
+    {
+      "label": "corpusA_smart_manufacturing",
+      "scopus": "TITLE(\"smart manufacturing\" OR \"intelligent manufacturing\" OR \"smart factory\" OR \"smart production\" OR \"manufacturing 4.0\" OR \"cyber-physical production system*\") AND (DOCTYPE(ar) OR DOCTYPE(re)) AND LANGUAGE(english) AND SRCTYPE(j)",
+      "wos": "TI=(\"smart manufacturing\" OR \"intelligent manufacturing\" OR \"smart factory\" OR \"smart production\" OR \"manufacturing 4.0\" OR \"cyber-physical production system*\") AND DT=(Article OR Review) AND LA=(English)"
+    }
+  ]
+}

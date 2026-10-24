@@ -1,0 +1,22 @@
+[2026-10-24T07:36:22.975822+00:00] Starting search
+  Databases: scopus, wos
+  Journals:  0
+  Years:     2012–2026
+  Queries:   1 (Scopus/WoS)
+
+── scopus ──
+  Scopus corpusA_smart_manufacturing: 2742 results
+
+── wos ──
+  WoS    corpusA_smart_manufacturing: 2294 results so far  (API total for query: 2294)
+
+Total rows before dedup: 5036
+Raw CSV:   analysis/raw/corpusA/search_results_raw.csv
+After DOI dedup:        2906
+  Merged no-DOI → DOI:  23
+After full dedup:       2883 (102 without DOI)
+Dedup CSV: analysis/raw/corpusA/search_results.csv
+
+Done. 2883 unique records.
+  Metadata:   analysis/corpusA/search_metadata.json
+  Run marker: analysis/corpusA/search_run.json
