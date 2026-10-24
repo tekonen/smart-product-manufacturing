@@ -21,7 +21,7 @@ open for other readers; the counts are the attested record.)*
 | Corpus | Database | Human web count | API count (2026-10-24) | Difference | Status |
 |---|---|---:|---:|---:|---|
 | A — smart manufacturing | Scopus | 2,742 | 2,742 | 0 | ✅ match |
-| A — smart manufacturing | Web of Science | 4,199 *(first run — publication-year filter missing; invalid)* | 2,294 | not comparable | 🔁 **re-run with year filter needed** |
+| A — smart manufacturing | Web of Science | 2,289 *(Teemu's wider web export, 4,199 rows, filtered to the registered criteria)* | 2,294 | −5, all explained | ✅ **match — every web record is in the API set** |
 | B — smart products | Scopus | 524 | 524 | 0 | ✅ match |
 | B — smart products | Web of Science | 526 *(2026-10-24, year filter applied)* | 470 | +56 (web is 12% higher) | ⚠️ **OPEN — residual gap, under investigation** |
 
@@ -62,3 +62,35 @@ identical) is thereby confirmed as at least part of the cause.
 The Corpus B web search, run with the year filter, returned 526 against the API's 470. A residual
 gap of 56 records (12%) remains open; remaining candidates are 2 (editions / API entitlement) and
 4 (phrase lemmatization), plus any filter still differing (document type, language).
+
+**2026-10-24 — Corpus A, Web of Science: RESOLVED, PASS.** Instead of re-running the web search,
+Teemu exported his wider web query (no year filter; 4,199 rows in 5 batches, 4,113 unique Web of
+Science accession numbers — the batches overlapped) to `data/raw/wos_corpusA_*.xls`. The
+registered filters were applied to that export by `scripts/validation/wos_export_vs_api.py` and
+the result compared with the API search record by record (accession number):
+
+| Step on the web export | Records |
+|---|---:|
+| all unique records | 4,113 |
+| + publication year 2012–2026 | 3,942 |
+| + document type Article/Review + language English (= registered query) | **2,289** |
+| API search (registered query) | **2,294** |
+
+- Records in both: 2,289. **Web-only: 0** — the API search missed nothing the web search found.
+- **API-only: 5** — all journal articles/reviews whose final publication year in the export is
+  **2027** (published online in 2026, assigned to 2027 issues). The API's year filter evidently
+  matches the online date; the export shows the issue year. They belong in the window by online
+  date and stay in the corpus.
+- The original 4,199 is fully explained by the missing year filter (171 records outside
+  2012–2026) plus the missing document-type and language filters.
+
+**Note for screening (criterion E1).** The registered Web of Science query filters on document type
+but not on source type, so 26 records in the API set are *not* journal publications: book chapters
+in book series or books (publication type S/B, document type "Article; Book Chapter"), and 2
+proceedings papers in a book series. The Scopus query excludes such records by source type. These
+26 fail E1 (not a peer-reviewed journal article/review) and are excluded at screening, reported
+under E1 in the flow diagram.
+
+**Corpus B, Web of Science (526 web vs 470 API): still open.** Most likely the same cause: the web
+count lacked the document-type and language filters. To confirm with the same record-level check,
+a Corpus B web export is needed.
