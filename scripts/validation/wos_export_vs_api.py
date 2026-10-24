@@ -9,15 +9,17 @@ Registered Web of Science query: TI=(...) AND DT=(Article OR Review) AND LA=(Eng
 Prints counts only (no record content), so the output is safe to paste into the validation record.
 
 Usage:
-    uv run --with pandas --with xlrd python scripts/validation/wos_export_vs_api.py
+    uv run --with pandas --with xlrd python scripts/validation/wos_export_vs_api.py [A|B]
 """
 import glob
+import sys
 import re
 
 import pandas as pd
 
-EXPORTS = sorted(glob.glob("data/raw/wos_corpusA_*.xls"))
-API_CSV = "analysis/raw/corpusA/search_results_raw.csv"
+CORPUS = sys.argv[1] if len(sys.argv) > 1 else "A"  # "A" or "B"
+EXPORTS = sorted(glob.glob(f"data/raw/wos_corpus{CORPUS}*.xls"))
+API_CSV = f"analysis/raw/corpus{CORPUS}/search_results_raw.csv"
 
 
 def norm_ut(x) -> str:

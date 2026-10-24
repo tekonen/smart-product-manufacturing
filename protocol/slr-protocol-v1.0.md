@@ -367,3 +367,13 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
     conference papers (SRCTYPE(j), DOCTYPE ar/re), so none are retrieved. Teemu decided not to run
     a separate conference-paper search; this registered sensitivity analysis is dropped and will be
     reported as a deviation in the manuscript.
+
+- **2026-10-24 — Search-scope validation (registered data-validation step): PASS.** Human
+  web-interface searches by Teemu vs scripted API searches: Scopus matched exactly (Corpus A 2,742;
+  Corpus B 524). Web of Science compared record by record from Teemu's web exports filtered to the
+  registered criteria: Corpus A web 2,289 all contained in API 2,294 (5 API-only records are
+  2027-issue articles published online 2026, retained); Corpus B 470 = 470, identical sets. Detail:
+  `analysis/search-scope-validation.md`; script `scripts/validation/wos_export_vs_api.py`. Also
+  noted: the registered Web of Science query filters document type but not source type, admitting
+  book chapters typed "Article; Book Chapter" (Corpus A 26, Corpus B 8) — excluded under E1 at
+  screening (A) and before the RQ3 analysis (B).

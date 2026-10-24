@@ -23,7 +23,7 @@ open for other readers; the counts are the attested record.)*
 | A — smart manufacturing | Scopus | 2,742 | 2,742 | 0 | ✅ match |
 | A — smart manufacturing | Web of Science | 2,289 *(Teemu's wider web export, 4,199 rows, filtered to the registered criteria)* | 2,294 | −5, all explained | ✅ **match — every web record is in the API set** |
 | B — smart products | Scopus | 524 | 524 | 0 | ✅ match |
-| B — smart products | Web of Science | 526 *(2026-10-24, year filter applied)* | 470 | +56 (web is 12% higher) | ⚠️ **OPEN — residual gap, under investigation** |
+| B — smart products | Web of Science | 470 *(Teemu's web export, 803 rows, filtered to the registered criteria)* | 470 | 0 | ✅ **identical record sets** |
 
 Result links supplied:
 
@@ -34,7 +34,7 @@ Result links supplied:
 
 API figures: `analysis/corpusA/search_metadata.json`, `analysis/corpusB/search_metadata.json`.
 
-## Web of Science Corpus A discrepancy — screening is blocked until this is resolved
+## Web of Science discrepancy investigation (now resolved — see Resolution)
 
 Not yet diagnosed. Candidate explanations to check, in order:
 
@@ -94,3 +94,32 @@ under E1 in the flow diagram.
 **Corpus B, Web of Science (526 web vs 470 API): still open.** Most likely the same cause: the web
 count lacked the document-type and language filters. To confirm with the same record-level check,
 a Corpus B web export is needed.
+
+**2026-10-24 — Corpus B, Web of Science: RESOLVED, PASS.** Teemu exported the Corpus B web search
+(`data/raw/wos_corpusB.xls`, 803 records, year filter applied, no document-type or language
+filter). Running the same script (`scripts/validation/wos_export_vs_api.py B`):
+
+| Step on the web export | Records |
+|---|---:|
+| all unique records (2012–2026) | 803 |
+| + document type Article/Review + language English (= registered query) | **470** |
+| API search (registered query) | **470** |
+
+Record sets identical: 470 in both, 0 web-only, 0 API-only. The earlier web count of 526 was
+taken without the full registered filters (the export of 803 likewise lacks the document-type and
+language filters); the record-level comparison is the decisive check.
+As in Corpus A, 8 of the 470 are book chapters in books or book series (publication type S/B),
+not journal publications. Corpus B is defined as journal articles/reviews, so these 8 are removed
+before the RQ3 citation analysis, mirroring the Scopus source-type filter.
+
+## Overall verdict — 2026-10-24: PASS
+
+| Corpus | Scopus (web = API) | Web of Science (web, filtered = API) |
+|---|---|---|
+| A — smart manufacturing | 2,742 = 2,742 | 2,289 ⊆ 2,294 (5 extra = 2027-issue articles, online 2026) |
+| B — smart products | 524 = 524 | 470 = 470 |
+
+The AI/API-supported search retrieved every record the human web-interface searches found, in
+both databases and both corpora. The registered search-scope validation is complete; screening
+may proceed once the remaining pre-screening steps (Zotero import, approved and committed
+screening prompt) are done.
