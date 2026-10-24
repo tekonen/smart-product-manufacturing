@@ -394,3 +394,12 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
   journal that Web of Science files as a series) was retrieved by Scopus as a journal item and is
   therefore kept. Result: 25 E1 pre-screen exclusions (was 26). Rule and keys:
   `analysis/validation/prescreen_exclusions.json`.
+
+- **2026-10-24 — Records removed before screening (applied).** Corpus A after merging 3 duplicate
+  pairs (confirmed by Teemu): 2,868. Removed before screening: **E1 25** (Web of Science
+  book/book-series chapters not also retrieved by the journal-only Scopus query) and **E6 23**
+  (retracted; union of Zotero's retraction list (21) and Web of Science's "(Retracted article"
+  title marker (21), overlap 19 — two 2025 retractions were missing from Zotero's list, two
+  unmarked retractions were missing from the title markers). No overlap between E1 and E6.
+  **Screening pool: 2,820.** Items tagged `prescreen:E1|E6` + `abstract:exclude` (+ `retracted:flag`)
+  in Zotero; keys in `analysis/validation/prescreen_exclusions.json`; verified 48/48 in Zotero.

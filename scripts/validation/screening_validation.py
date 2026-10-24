@@ -12,7 +12,9 @@ Three subcommands, run in this order (registered in OSF w9vj4 and protocol §7 /
                   (S/B — "Article; Book Chapter") AND that the journal-only Scopus query did not
                   also retrieve (a Scopus hit means a journal that WoS files as a series, e.g.
                   "Annual Review of ..."); matched by DOI, else normalized title.
-             E6 = retracted items, as placed by Teemu in the Zotero collection "E6 retracted".
+             E6 = retracted items: union of (a) Zotero's retraction list, placed by Teemu in the
+                  collection "Retracted items", and (b) Web of Science's "(Retracted article" title
+                  marker — each source catches retractions the other misses.
              Tags each item `prescreen:E1|E6` + `abstract:exclude` (+ `retracted:flag` for E6),
              so the plugin's abstract_screen.py skips them. Dry run unless --apply.
   sample     Draw the blind human-validation sample: seeded random 10% (rounded up) of the
@@ -49,7 +51,8 @@ from pathlib import Path
 
 GROUP = "6732772"          # Zotero "Smart Products" — canonical record in CLAUDE.md
 CORPUS_A = "5KWXUAKK"      # Corpus A collection key
-E6_COLLECTION_NAME = "E6 retracted"
+E6_COLLECTION_NAME = "Retracted items"
+RETRACTION_MARKER = re.compile(r"\(retracted article", re.IGNORECASE)  # WoS title marker
 WOS_EXPORTS = "data/raw/wos_corpusA*.xls"
 LOG = Path("screening/abstract_screening.csv")
 SHEET = Path("screening/human_validation_sample.csv")
@@ -143,8 +146,12 @@ def cmd_prescreen(args) -> None:
         sys.exit(f'Collection "{E6_COLLECTION_NAME}" not found in group {GROUP} — create it first.')
     e6_items = z.collection_items(colls[E6_COLLECTION_NAME])
     corpus_keys = {i["key"] for i in items}
-    e6 = {i["key"]: i["data"].get("title") for i in e6_items if i["key"] in corpus_keys}
-    print(f'E6 retracted (collection "{E6_COLLECTION_NAME}"): {len(e6_items)}; in Corpus A: {len(e6)}')
+    e6_zotero = {i["key"] for i in e6_items if i["key"] in corpus_keys}
+    e6_marker = {i["key"] for i in items if RETRACTION_MARKER.search(i["data"].get("title", ""))}
+    e6 = {i["key"]: i["data"].get("title") for i in items if i["key"] in (e6_zotero | e6_marker)}
+    print(f'E6 retracted — Zotero retraction list (collection "{E6_COLLECTION_NAME}"): '
+          f'{len(e6_zotero)}; Web of Science title marker: {len(e6_marker)}; '
+          f'both: {len(e6_zotero & e6_marker)}; union: {len(e6)}')
 
     overlap = set(e1) & set(e6)
     if overlap:
@@ -159,6 +166,7 @@ def cmd_prescreen(args) -> None:
         "E1_rule": "WoS publication type S/B AND not retrieved by the journal-only Scopus query",
         "kept_WoS_series_but_Scopus_journal_titles": kept_as_journal,
         "E6_retracted": sorted(e6),
+        "E6_sources": {"zotero_retraction_list": sorted(e6_zotero), "wos_title_marker": sorted(e6_marker)},
         "screening_pool": len(items) - len(e1) - len(e6),
     }
     OUT.mkdir(parents=True, exist_ok=True)
@@ -169,10 +177,27 @@ def cmd_prescreen(args) -> None:
     if not args.apply:
         print("\n[DRY RUN] no Zotero tags written. Re-run with --apply.")
         return
-    updates = [(k, {"add": ["prescreen:E1", "abstract:exclude"]}) for k in e1]
-    updates += [(k, {"add": ["prescreen:E6", "retracted:flag", "abstract:exclude"]}) for k in e6]
-    stats = z.batch_update_tags(updates)
-    print(f"Tags applied: {stats}")
+    # Per-item writes via zotero_io.update_tags (idempotent: 0 changes if tags already present).
+    # The plugin's batch_update_tags crashed on the current pyzotero return type (bool) after a
+    # partial write, so it is not used here.
+    plan = [(k, ["prescreen:E1", "abstract:exclude"]) for k in e1]
+    plan += [(k, ["prescreen:E6", "retracted:flag", "abstract:exclude"]) for k in e6]
+    changed = unchanged = failed = 0
+    for k, add in plan:
+        try:
+            n = z.update_tags(k, add=add)
+            changed += bool(n); unchanged += not n
+        except Exception as exc:  # report, never hide
+            failed += 1
+            print(f"  FAILED {k}: {exc}")
+    print(f"Tag writes: changed {changed}, already complete {unchanged}, failed {failed}")
+    # Verify against Zotero, not against our own bookkeeping.
+    fresh = {i["key"]: tags_of(i) for i in corpus_items(z)}
+    ok = all({"prescreen:E1", "abstract:exclude"} <= fresh.get(k, set()) for k in e1) and \
+        all({"prescreen:E6", "retracted:flag", "abstract:exclude"} <= fresh.get(k, set()) for k in e6)
+    print(f"Verified in Zotero: E1 tagged {sum('prescreen:E1' in fresh.get(k, ()) for k in e1)}/{len(e1)}, "
+          f"E6 tagged {sum('prescreen:E6' in fresh.get(k, ()) for k in e6)}/{len(e6)} -> "
+          f"{'OK' if ok else 'INCOMPLETE'}")
 
 
 # ------------------------------------------------------------------- sample
