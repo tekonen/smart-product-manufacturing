@@ -403,3 +403,11 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
   unmarked retractions were missing from the title markers). No overlap between E1 and E6.
   **Screening pool: 2,820.** Items tagged `prescreen:E1|E6` + `abstract:exclude` (+ `retracted:flag`)
   in Zotero; keys in `analysis/validation/prescreen_exclusions.json`; verified 48/48 in Zotero.
+
+- **2026-10-24 — Blind human-validation sample drawn (before any model screening).** Seed
+  20261024 (ISO date of the run, as pre-specified in data/EXPORT-INSTRUCTIONS.md);
+  `random.Random(seed).sample(sorted(pool_keys), ceil(0.10 × 2,820))` → **282 records**. Seed,
+  method and the 282 item keys committed in `analysis/validation/human_sample_manifest.json`
+  before the human pass and before any model screening. The blinded sheet (title, abstract, year,
+  venue; no model output) is local only (`screening/human_validation_sample.csv`, licensed
+  abstracts). Blinding guard verified: no model `abstract:*` decision tags existed in the pool.
