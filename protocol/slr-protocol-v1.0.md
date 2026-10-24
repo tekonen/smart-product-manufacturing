@@ -216,6 +216,11 @@ statement; compliance mapping in the amendment log entry 2026-09-12):**
   the repository committed and stable, Teemu re-runs the registration from the Systematic Review
   draft; this entry will be updated with the successful registration URL, finalization date, and
   minted DOI once archiving completes. Screening has not begun.
+  **FINAL 2026-10-03: REGISTERED.** After repeated archiving failures during a prolonged Open
+  Science Framework service degradation, the registration succeeded: https://osf.io/w9vj4/ —
+  Generalized Systematic Review Registration, OSF Registries, registered 2026-10-03 06:45:43 UTC,
+  status Accepted, public, no embargo. DOI: 10.17605/OSF.IO/W9VJ4. Contributors: Teemu Karppinen,
+  Jan Holmström. Screening had not begun at registration; all screening and coding follow it.
 
 - **2026-07-14 — Commitments made in the OSF registration form** (binding; specified here so the
   execution steps are followed, not just declared):

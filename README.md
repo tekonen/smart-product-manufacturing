@@ -28,7 +28,7 @@ the export procedure documents how to reproduce them.
 
 - 2026-07-13 — scoping study, novelty check, pilots 1–2
 - 2026-07-14 — protocol frozen at v1.0 (tag `protocol-v1.0`)
-- OSF project: https://osf.io/sz3d2/ (GitHub-linked); registration submission pending
+- **Registered 2026-10-03:** https://osf.io/w9vj4/ — DOI 10.17605/OSF.IO/W9VJ4 (project: https://osf.io/sz3d2/)
 
 ## Author
 
