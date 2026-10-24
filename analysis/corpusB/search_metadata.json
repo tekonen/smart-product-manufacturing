@@ -1,0 +1,26 @@
+{
+  "search_date_start": "2026-10-24T07:50:37.962096+00:00",
+  "search_date_end": "2026-10-24T07:51:02.575301+00:00",
+  "databases": [
+    "scopus",
+    "wos"
+  ],
+  "from_year": 2012,
+  "to_year": 2026,
+  "journals": {},
+  "journal_count": 0,
+  "per_database_counts": {
+    "scopus": 524,
+    "wos": 470
+  },
+  "total_raw_rows": 994,
+  "total_unique_records": 561,
+  "records_without_doi": 31,
+  "query_defs": [
+    {
+      "label": "corpusB_smart_products",
+      "scopus": "TITLE(\"smart product*\" OR \"intelligent product*\" OR \"smart connected product*\" OR \"product-driven\" OR \"product avatar\" OR \"smart product-service\") AND (DOCTYPE(ar) OR DOCTYPE(re)) AND LANGUAGE(english) AND SRCTYPE(j)",
+      "wos": "TI=(\"smart product*\" OR \"intelligent product*\" OR \"smart connected product*\" OR \"product-driven\" OR \"product avatar\" OR \"smart product-service\") AND DT=(Article OR Review) AND LA=(English)"
+    }
+  ]
+}

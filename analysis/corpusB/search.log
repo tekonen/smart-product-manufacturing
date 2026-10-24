@@ -1,0 +1,22 @@
+[2026-10-24T07:50:37.962096+00:00] Starting search
+  Databases: scopus, wos
+  Journals:  0
+  Years:     2012–2026
+  Queries:   1 (Scopus/WoS)
+
+── scopus ──
+  Scopus corpusB_smart_products: 524 results
+
+── wos ──
+  WoS    corpusB_smart_products: 470 results so far  (API total for query: 470)
+
+Total rows before dedup: 994
+Raw CSV:   analysis/raw/corpusB/search_results_raw.csv
+After DOI dedup:        565
+  Merged no-DOI → DOI:  4
+After full dedup:       561 (31 without DOI)
+Dedup CSV: analysis/raw/corpusB/search_results.csv
+
+Done. 561 unique records.
+  Metadata:   analysis/corpusB/search_metadata.json
+  Run marker: analysis/corpusB/search_run.json
